@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web App</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #result { margin: 20px; }
+        button { padding: 10px 20px; margin: 10px; }
+    </style>
+    <script>
+        async function fetchData(endpoint) {
+            const response = await fetch(endpoint);
+            const result = await response.text();
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Simple Web Application</h1>
+    <div>
+        <button onclick="fetchData('/api/time')">Get Current Time</button>
+        <button onclick="fetchData('/api/ip')">Get IP Address</button>
+        <button onclick="fetchData('/api/toss')">Toss a Coin</button>
+    </div>
+    <div id="result">Click a button to get the result here!</div>
+</body>
+</html>
+
